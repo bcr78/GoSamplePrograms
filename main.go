@@ -32,6 +32,15 @@ func sum( Name string, nums ...int) {
     fmt.Println(total)
 }
 
+func makeEvenGenerator(i int) func(i int) int {
+ 
+  return func(i int) (ret int) {
+    ret = i
+    i += 2
+    return
+  }
+}
+
 
 func main(){
 	fmt.Println("hello World")
@@ -43,6 +52,11 @@ func main(){
 	
 	nums := []int{1, 2, 3, 4}
     sum("BBB",nums...)
+    
+    nextEven := makeEvenGenerator(2)
+  fmt.Println(nextEven(2)) // 0
+  fmt.Println(nextEven(2)) // 2
+  fmt.Println(nextEven(2)) // 4
 	
 	
 }
